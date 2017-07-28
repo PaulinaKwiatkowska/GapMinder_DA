@@ -31,7 +31,6 @@ def income_categories(row):
 df1=pd.read_csv(r'C:\Users\Robert\Desktop\Python\gapminder.csv',sep=",",
                 index_col=0, header=0, skipinitialspace=True)
 
-
 #dividing into categories
 
 df1["Income_category"]=df1.apply(income_categories, axis=1)
@@ -51,6 +50,3 @@ print mc1
 res1 = mc1.tukeyhsd()
 
 print res1.summary()
-
-#print pairwise_tukeyhsd(sub1['internetuserate'], sub1['Income_category'])
-
