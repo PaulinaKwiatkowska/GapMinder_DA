@@ -9,8 +9,6 @@ import pandas as pd
 import statsmodels.formula.api as smf
 import statsmodels.stats.multicomp as multi 
 
-from statsmodels.stats.multicomp import pairwise_tukeyhsd
-
 def income_categories(row):
     
     '''
@@ -34,10 +32,8 @@ df1=pd.read_csv(r'C:\Users\Robert\Desktop\Python\gapminder.csv',sep=",",
 #dividing into categories
 
 df1["Income_category"]=df1.apply(income_categories, axis=1)
-print df1["Income_category"]
 
 sub1 = df1[["internetuserate","Income_category"]].dropna()
-
 print sub1.groupby(df1["Income_category"]).mean()
 
 # using ols function for calculating the F-statistic and associated p value
@@ -50,3 +46,5 @@ print mc1
 res1 = mc1.tukeyhsd()
 
 print res1.summary()
+
+print df1.loc['Japan']
